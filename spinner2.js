@@ -1,9 +1,9 @@
-const returnID = setInterval(() => {
-  process.stdout.write('\r|   ')
-  setTimeout(() => process.stdout.write('\r/   '), 200);
-  setTimeout(() => process.stdout.write('\r-   '), 400);
-  setTimeout(() => process.stdout.write('\r\\   '), 600);
-  setTimeout(() => process.stdout.write('\r|   '), 800);
-  }, 800);
-setTimeout(() => clearInterval(returnID), 2400);
-setTimeout(() => console.log(), 2500);
+const positions = ['|', '/', '-', '\\']
+let x = 100;
+for (let i = 0; i < 2; i++) {
+  for (let position of positions) {
+    setTimeout(() => process.stdout.write(`\r${position}   `), x);
+    x += 200
+  };
+}
+setTimeout(() => console.log(), x);
